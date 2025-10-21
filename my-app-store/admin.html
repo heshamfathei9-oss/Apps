@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- شاشة تسجيل الدخول -->
+    <div id="loginScreen" class="login-container">
+        <h2>🔐 لوحة التحكم الخاصة</h2>
+        <input type="password" id="passwordInput" placeholder="أدخل كلمة المرور">
+        <button onclick="handleLogin()">دخول</button>
+        <p class="hint">كلمة المرور الافتراضية: 1234</p>
+    </div>
+
+    <!-- لوحة التحكم الكاملة (مخفية) -->
+    <div id="adminPanel" class="container" style="display: none;">
+        <header class="admin-header">
+            <h1><i class="fas fa-user-shield"></i> لوحة التحكم</h1>
+            <button onclick="handleLogout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> خروج</button>
+        </header>
+
+        <!-- الإحصائيات -->
+        <section class="stats-grid">
+            <!-- سيتم ملؤها بالجافاسكريبت -->
+        </section>
+
+        <!-- نموذج إضافة/تعديل تطبيق -->
+        <section class="form-section">
+            <h2 id="formTitle">➕ إضافة تطبيق جديد</h2>
+            <form id="appForm">
+                <input type="hidden" id="appId">
+                <div class="form-grid">
+                    <input type="text" id="appName" placeholder="اسم التطبيق" required>
+                    <input type="url" id="appLink" placeholder="رابط التحميل (من Google Drive, etc.)" required>
+                    <input type="text" id="appIcon" placeholder="رابط أيقونة التطبيق (اختياري)">
+                    <select id="appCategory">
+                        <option value="تطبيقات">📱 تطبيقات</option>
+                        <option value="ألعاب">🎮 ألعاب</option>
+                        <option value="أدوات">🔧 أدوات</option>
+                        <option value="تعليم">📚 تعليم</option>
+                    </select>
+                    <input type="text" id="appSize" placeholder="حجم الملف (e.g., 50MB)">
+                    <input type="text" id="appVersion" placeholder="الإصدار (e.g., 2.1.0)">
+                </div>
+                <textarea id="appDescription" placeholder="وصف قصير للتطبيق"></textarea>
+                <div class="form-actions">
+                    <button type="submit" id="saveBtn">💾 حفظ التطبيق</button>
+                    <button type="button" onclick="resetForm()" id="cancelBtn" style="display: none;">إلغاء التعديل</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- إدارة التطبيقات -->
+        <section class="manage-section">
+            <h2>📱 إدارة كل التطبيقات</h2>
+            <div class="apps-grid" id="adminAppsGrid">
+                <!-- كل التطبيقات (العامة والخاصة) ستظهر هنا -->
+            </div>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
